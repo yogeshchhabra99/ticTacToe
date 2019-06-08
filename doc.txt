@@ -1,0 +1,13 @@
+main.cpp contains 2 player tic-tac-toe terminal game
+The idea is to create a program that will master playing ttt by playing aginst itself
+There are 9 places with 3 options creating 3^9 statees although few of them are repeated but I am not considering it here
+Total states = 19683
+Each place can have 0 1 2 corresponding to <space> X and 0
+The index of a state is determined polynomially, we need to get the best move for each state
+The input for state index should be matrix player 1 or player 2, player 1 writes X and 2 writes 0
+At any state there are 9 moves and only some of them are valid, we'll store  the probability of winning after each move. Probability is -1 if the move is invalid.
+We also store how many times each move has been tried so the data becomes
+
+State-index, total-moves , last-move , wins-move-1 , wins-move-2
+
+in a file named state-<index>.txt
