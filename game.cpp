@@ -30,7 +30,7 @@ int calc(){
 		for(int j=0;j<3;j++){
 			if(mat[j][i]=='X')
 				x++;
-			else if(mat[i][j]=='0')
+			else if(mat[j][i]=='0')
 				o++;
 		}
 		if(x==3) return 1;
@@ -51,9 +51,9 @@ int calc(){
 //	cout<<"debug 3"<<endl;
 	x=0;o=0;
 	for(int i=0;i<3;i++){
- 		if(mat[2-i][2-i]=='X')
+ 		if(mat[2-i][i]=='X')
 			x++;
-		else if(mat[2-i][2-i]=='0')
+		else if(mat[2-i][i]=='0')
 			o++;
 	}
 	if(x==3) return 1;
@@ -61,7 +61,6 @@ int calc(){
 //	cout<<"debug 4"<<endl;
 	int l=0;
 	for(int i=0;i<3;i++){
-		
 		for(int j=0;j<3;j++){
 			if(mat[i][j]==' ')
 				l++;
@@ -124,6 +123,13 @@ void init(){
 	}
 }
 
+void del(){
+	for(int i=0;i<3;i++){
+		delete(mat[i]);
+	}
+	delete(mat);
+}
+
 void displayRules(){
 	cout<<"Player 1 writes X"<<endl;
 	cout<<"Player 2 writes 0"<<endl;
@@ -143,7 +149,7 @@ int nextMove(int x,int y){
 	mat[y-1][x-1]=(turn==1)?'X':'0';
 
 	turn=(turn==1)?2:1;
-	if(calc()==1){
+	if(calc()==1|| calc()==2){
 		//cout<<"Player 1 wins (writes X)"<<endl;
 		return 1;		
 	}

@@ -8,6 +8,6 @@ The input for state index should be matrix player 1 or player 2, player 1 writes
 At any state there are 9 moves and only some of them are valid, we'll store  the probability of winning after each move. Probability is -1 if the move is invalid.
 We also store how many times each move has been tried so the data becomes
 
-State-index, total-moves , last-move , wins-move-1 , wins-move-2
+State-index, total-moves , last-move , wins-move-1 , wins-move-2.... , draws-move-1....
 
 in a file named state-<index>.txt
